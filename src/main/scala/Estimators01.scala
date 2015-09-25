@@ -4,7 +4,6 @@
 
 
 import org.apache.spark.{SparkContext, SparkConf}
-import org.apache.spark.SparkContext._
 import org.apache.spark.ml.classification.LogisticRegression
 import org.apache.spark.ml.param.ParamMap
 import org.apache.spark.mllib.linalg.{Vector, Vectors}
@@ -17,7 +16,6 @@ object Estimators01 {
     val conf: SparkConf = new SparkConf().setAppName("Estimators01")
     val sc = new SparkContext(conf)
     val sqlCx = new SQLContext(sc)
-    import sqlCx.implicits._
 
     val trainingSet: Seq[(Double, Vector)] = Seq(
       (1.0, Vectors.dense(0.0, 1.1, 0.1)),
