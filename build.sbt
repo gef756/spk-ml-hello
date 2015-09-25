@@ -2,7 +2,7 @@ name := "spk-ml-hello"
 
 version := "1.0"
 
-scalaVersion := "2.11.7"
+scalaVersion := "2.10.4"
 
 assemblyMergeStrategy in assembly <<= (assemblyMergeStrategy in assembly) {
   old => {
