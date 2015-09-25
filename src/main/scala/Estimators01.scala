@@ -27,9 +27,9 @@ object Estimators01 {
     )
 
     val training: DataFrame = sqlCx.createDataFrame(trainingSet)
-                                   // a.toDF("label", "features")
+                                   .toDF("label", "features")
 
-    /*val lr = new LogisticRegression()
+    val lr = new LogisticRegression()
     println("LogisticRegression parameters:\n" + lr.explainParams() + "\n")
 
     lr.setMaxIter(10)
@@ -48,7 +48,7 @@ object Estimators01 {
     val model2 = lr.fit(training, paramMapCombined)
     println("Model 2 was fit using parameters: " + model2.parent.extractParamMap)
 
-    val test = sqlContext.createDataFrame(Seq(
+    val test = sqlCx.createDataFrame(Seq(
       (1.0, Vectors.dense(-1.0, 1.5, 1.3)),
       (0.0, Vectors.dense(3.0, 2.0, -1.0)),
       (1.0, Vectors.dense(0.0, 2.2, -1.5))
@@ -59,7 +59,7 @@ object Estimators01 {
       .collect()
       .foreach { case Row(features: Vector, label: Double, prob: Vector, prediction: Double) =>
         println(s"($features, $label) -> prob=$prob, prediction=$prediction")
-      }*/
+      }
   }
  }
 
